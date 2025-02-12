@@ -11,7 +11,7 @@ const {onSent,recentPrompt,showResult,loading,resultData,setInput,input}= useCon
 return (
     <div className='main'>
         <div className="nav">
-            <p>Gemini</p>
+            <p>CHAT-AI</p>
             <img src={assets.user_icon} alt=''/>
         </div>
     <div className="main-container">
@@ -32,11 +32,11 @@ return (
        <img src={assets.bulb_icon} alt=''/>
         </div>
         <div className="card">
-            <p>doon is a beautiful place</p>
+            <p>Travel Guide for Paris</p>
        <img src={assets.message_icon} alt=''/>
         </div>
         <div className="card">
-            <p>lets go to shopping together</p>
+            <p>Make a shopping list for me</p>
        <img src={assets.code_icon} alt=''/>
         </div>
      </div>
