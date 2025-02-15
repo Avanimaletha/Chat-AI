@@ -37,7 +37,7 @@ const loadPrompt = async (prompt) =>{
       }
       
       </div>
-      <div className="bottom">
+    <div className="bottom">
         <div className="bottom-item recent-entry">
           <img src={assets.question_icon} alt="" />
          {extended? <p>Help</p>:null}
