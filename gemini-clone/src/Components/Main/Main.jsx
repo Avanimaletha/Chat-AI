@@ -11,7 +11,7 @@ const {onSent,recentPrompt,showResult,loading,resultData,setInput,input}= useCon
 return (
     <div className='main'>
         <div className="nav">
-            <p>CHAT-AI</p>
+            <p>Chat-AI</p>
             <img src={assets.user_icon} alt=''/>
         </div>
     <div className="main-container">
@@ -19,8 +19,8 @@ return (
     {!showResult
     ?<>
 <div className="greet">
-        <p><span>Hello,Dev.</span></p>
-        <p>How can i help u today?</p>
+        <p><span>Hey there!</span></p>
+        <p>How can I assist you today?</p>
      </div>
      <div className="cards">
         <div className="card">
@@ -48,7 +48,7 @@ return (
             <p>{recentPrompt}</p>
         </div>
         <div className="result-data">
-            <img src={assets.gemini_icon} alt="" />
+            <img src={assets.robot_icon} alt="" />
             {loading
             ?
         <div className='loader'>
@@ -73,7 +73,7 @@ return (
             </div>
         </div>
         <p className="bottom-info">
-           Gemini may display inaccurate info, including about people, so double-check its responses. Your privacy and Gemini Apps
+           Chat-AI may display inaccurate info, including about people, so double-check its responses. Your privacy and Gemini Apps
         </p>
     </div>
 
