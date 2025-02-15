@@ -2,11 +2,26 @@ import React, { useContext } from 'react'
 import'./Main.css'
 import { assets } from '../../assets/assets'
 import { Context } from '../../context/Context'
+
 const Main = () => {
 
 const {onSent,recentPrompt,showResult,loading,resultData,setInput,input}= useContext(Context)
- 
 
+const startVoiceRecognition = () => {
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = 'en-US';
+
+    recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        setInput(transcript);
+    };
+
+    recognition.onerror = (event) => {
+        console.error("Voice recognition error:", event.error);
+    };
+
+    recognition.start();
+};
 
 return (
     <div className='main'>
@@ -61,13 +76,11 @@ return (
      </div>
     }
 
-     
-
     <div className="main-bottom">
     <div className="search-box">
     <input onChange={(e) => setInput(e.target.value)} value={input} type='text' placeholder='Enter a prompt here' />
     <div>
-        {/* Hidden file input */}
+       
         <input 
             type="file" 
             id="fileInput" 
@@ -76,7 +89,7 @@ return (
         />
         <img src={assets.gallery_icon} alt="" onClick={() => document.getElementById('fileInput').click()} />
 
-        {/* Microphone button */}
+       
         <img src={assets.mic_icon} alt="" onClick={startVoiceRecognition} />
 
         {input ? <img onClick={() => onSent()} src={assets.send_icon} alt="" /> : null}
@@ -87,8 +100,6 @@ return (
            Chat-AI may display inaccurate info, including about people, so double-check its responses. Your privacy and Gemini Apps
         </p>
     </div>
-
-
     </div>
     </div>
   )
